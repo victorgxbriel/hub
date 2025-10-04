@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="ui.ScoreboardFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:padding="8dp">
+
+            <TextView
+                android:id="@+id/timeA"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="16dp"
+                android:text="Lakers"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="#552583"
+                android:fontFamily="sans-serif"/>
+
+            <TextView
+                android:id="@+id/placarTimeA"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="12dp"
+                android:text="0"
+                android:textSize="54sp"
+                android:textStyle="bold"
+                android:textColor="#000000"
+                android:fontFamily="sans-serif"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/tresPontosA"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="12dp"
+                style="@style/Widget.App.Button.Lakers"
+                android:text="+3 PONTOS"/>
+
+            <Button
+                android:id="@+id/doisPontosA"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="12dp"
+                android:text="+2 PONTOS"
+                style="@style/Widget.App.Button.Lakers"/>
+
+            <Button
+                android:id="@+id/tiroLivreA"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="12dp"
+                android:text="Tiro Livre"
+                style="@style/Widget.App.Button.Lakers"/>
+        </LinearLayout>
+
+        <View
+            android:layout_width="2dp"
+            android:layout_height="match_parent"
+            android:background="#CCCCCC"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"/>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:padding="8dp">
+
+            <TextView
+                android:id="@+id/timeB"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="16dp"
+                android:text="Celtics"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="#007A33"
+                android:fontFamily="sans-serif"/>
+
+            <TextView
+                android:id="@+id/placarTimeB"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="12dp"
+                android:text="0"
+                android:textSize="54sp"
+                android:textStyle="bold"
+                android:textColor="#000000"
+                android:fontFamily="sans-serif"/>
+
+            <Button
+                android:id="@+id/tresPontosB"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="12dp"
+                android:text="+3 PONTOS"
+                style="@style/Widget.App.Button.Celtics"/>
+
+            <Button
+                android:id="@+id/doisPontosB"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="12dp"
+                android:text="+2 PONTOS"
+                style="@style/Widget.App.Button.Celtics"/>
+
+            <Button
+                android:id="@+id/tiroLivreB"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="12dp"
+                android:text="Tiro Livre"
+                style="@style/Widget.App.Button.Celtics"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/reiniciarPartida"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Reiniciar Partida"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="32dp"
+        android:backgroundTint="#2196F3"
+        android:textColor="#FFFFFF"
+        android:padding="16dp"/>
+</RelativeLayout>

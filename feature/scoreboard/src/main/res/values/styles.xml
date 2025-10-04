@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Widget.App.Button.Scoreboard" parent="Widget.Material3.Button">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_margin">12dp</item>
+        <item name="cornerRadius">16dp</item>
+        <item name="strokeWidth">2dp</item>
+    </style>
+
+    <style name="Widget.App.Button.Lakers" parent="Widget.App.Button.Scoreboard">
+        <item name="android:textColor">#FDB927</item>
+        <item name="backgroundTint">#552583</item>
+        <item name="strokeColor">#FDB927</item>
+    </style>
+
+    <style name="Widget.App.Button.Celtics" parent="Widget.App.Button.Scoreboard">
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="backgroundTint">#007A33</item>
+        <item name="strokeColor">#FFFFFF</item>
+    </style>
+</resources>

@@ -1,0 +1,35 @@
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/hubFragment">
+
+    <fragment
+        android:id="@+id/hubFragment"
+        android:name="com.example.hub.ui.HubFragment"
+        android:label="App Hub"
+        tools:layout="@layout/fragment_hub" >
+
+        <action
+            android:id="@+id/action_hubFragment_to_calculatorFragment"
+            app:destination="@id/calculatorFragment" />
+
+        <action
+            android:id="@+id/action_hubFragment_to_scoreboardFragment"
+            app:destination="@id/scoreboardFragment" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/calculatorFragment"
+        android:name="com.example.calculator.ui.CalculatorFragment"
+        android:label="Calculadora"
+        tools:layout="@layout/fragment_calculator" />
+
+    <fragment
+        android:id="@+id/scoreboardFragment"
+        android:name="com.example.scoreboard.ui.ScoreboardFragment"
+        android:label="Placar"
+        tools:layout="@layout/fragment_scoreboard" />
+
+</navigation>
