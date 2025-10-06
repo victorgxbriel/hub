@@ -15,6 +15,7 @@
             <option value="$PROJECT_DIR$/feature" />
             <option value="$PROJECT_DIR$/feature/calculator" />
             <option value="$PROJECT_DIR$/feature/scoreboard" />
+            <option value="$PROJECT_DIR$/feature/timer" />
           </set>
         </option>
       </GradleProjectSettings>

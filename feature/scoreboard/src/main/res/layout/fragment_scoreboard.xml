@@ -18,17 +18,14 @@
             android:orientation="vertical"
             android:padding="8dp">
 
-            <TextView
-                android:id="@+id/timeA"
+            <Spinner
+                android:id="@+id/spinnerTimeA"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
                 android:padding="16dp"
-                android:text="Lakers"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                android:textColor="#552583"
-                android:fontFamily="sans-serif"/>
+                android:spinnerMode="dropdown"
+                android:backgroundTint="#000000"
+                android:layout_marginBottom="8dp"/>
 
             <TextView
                 android:id="@+id/placarTimeA"
@@ -40,31 +37,38 @@
                 android:textSize="54sp"
                 android:textStyle="bold"
                 android:textColor="#000000"
-                android:fontFamily="sans-serif"/>
+                android:fontFamily="sans-serif"
+                android:visibility="gone"/>
 
-            <com.google.android.material.button.MaterialButton
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/tresPontosA"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="12dp"
-                style="@style/Widget.App.Button.Lakers"
-                android:text="+3 PONTOS"/>
+                android:text="+3 PONTOS"
+                android:background="@drawable/custom_button_lakers"
+                android:textColor="#FDB927"
+                android:visibility="gone"/>
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/doisPontosA"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="12dp"
                 android:text="+2 PONTOS"
-                style="@style/Widget.App.Button.Lakers"/>
+                android:background="@drawable/custom_button_lakers"
+                android:textColor="#FDB927"
+                android:visibility="gone"/>
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/tiroLivreA"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="12dp"
                 android:text="Tiro Livre"
-                style="@style/Widget.App.Button.Lakers"/>
+                android:background="@drawable/custom_button_lakers"
+                android:textColor="#FDB927"
+                android:visibility="gone"/>
         </LinearLayout>
 
         <View
@@ -81,17 +85,14 @@
             android:orientation="vertical"
             android:padding="8dp">
 
-            <TextView
-                android:id="@+id/timeB"
+            <Spinner
+                android:id="@+id/spinnerTimeB"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
                 android:padding="16dp"
-                android:text="Celtics"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                android:textColor="#007A33"
-                android:fontFamily="sans-serif"/>
+                android:spinnerMode="dropdown"
+                android:backgroundTint="#000000"
+                android:layout_marginBottom="8dp"/>
 
             <TextView
                 android:id="@+id/placarTimeB"
@@ -103,31 +104,38 @@
                 android:textSize="54sp"
                 android:textStyle="bold"
                 android:textColor="#000000"
-                android:fontFamily="sans-serif"/>
+                android:fontFamily="sans-serif"
+                android:visibility="gone"/>
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/tresPontosB"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="12dp"
                 android:text="+3 PONTOS"
-                style="@style/Widget.App.Button.Celtics"/>
+                android:background="@drawable/custom_button_celtics"
+                android:textColor="#FFFFFF"
+                android:visibility="gone"/>
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/doisPontosB"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="12dp"
                 android:text="+2 PONTOS"
-                style="@style/Widget.App.Button.Celtics"/>
+                android:background="@drawable/custom_button_celtics"
+                android:textColor="#FFFFFF"
+                android:visibility="gone"/>
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/tiroLivreB"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="12dp"
                 android:text="Tiro Livre"
-                style="@style/Widget.App.Button.Celtics"/>
+                android:background="@drawable/custom_button_celtics"
+                android:textColor="#FFFFFF"
+                android:visibility="gone"/>
         </LinearLayout>
 
     </LinearLayout>
@@ -142,5 +150,6 @@
         android:layout_margin="32dp"
         android:backgroundTint="#2196F3"
         android:textColor="#FFFFFF"
-        android:padding="16dp"/>
+        android:padding="16dp"
+        android:visibility="gone"  tools:visibility="visible"/>
 </RelativeLayout>

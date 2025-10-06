@@ -18,6 +18,10 @@
             android:id="@+id/action_hubFragment_to_scoreboardFragment"
             app:destination="@id/scoreboardFragment" />
 
+        <action
+            android:id="@+id/action_hubFragment_to_timerFragment"
+            app:destination="@id/timerFragment" />
+
     </fragment>
 
     <fragment
@@ -31,5 +35,11 @@
         android:name="com.example.scoreboard.ui.ScoreboardFragment"
         android:label="Placar"
         tools:layout="@layout/fragment_scoreboard" />
+
+    <fragment
+        android:id="@+id/timerFragment"
+        android:name="com.example.timer.ui.TimerFragment"
+        android:label="Cronometro"
+        tools:layout="@layout/fragment_timer" />
 
 </navigation>

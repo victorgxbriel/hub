@@ -11,10 +11,7 @@ import com.example.hub.databinding.FragmentHubBinding
 
 class HubFragment : Fragment() {
 
-    // Declara a variável de binding. O underscore indica que é privada para esta classe.
     private var _binding: FragmentHubBinding? = null
-    // Esta propriedade é apenas um getter e remove a necessidade de usar '?' toda vez.
-    // Garante que o binding só seja acessado quando a view do fragment estiver viva.
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -22,32 +19,42 @@ class HubFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        // Infla o layout usando View Binding e o atribui à nossa variável _binding.
         _binding = FragmentHubBinding.inflate(inflater, container, false)
-        // Retorna a view raiz do nosso layout.
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // Aqui configuramos os listeners de clique.
-        // O código dentro das chaves será executado quando o botão for clicado.
-        binding.buttonCalculator.setOnClickListener {
-            // Ação de navegação para a calculadora virá aqui.
-            findNavController().navigate(R.id.action_hubFragment_to_calculatorFragment)
+        val hubAdapter = HubAdapter { appItem ->
+            findNavController().navigate(appItem.navigationAction)
         }
 
-        binding.buttonScoreboard.setOnClickListener {
-            // Ação de navegação para o placar virá aqui.
-            findNavController().navigate(R.id.action_hubFragment_to_scoreboardFragment)
-        }
+        binding.recyclerViewApps.adapter = hubAdapter
+
+        val appList = listOf(
+            AppItem(
+                name = "Calculadora",
+                iconRes = R.drawable.ic_hub_calculator,
+                navigationAction = R.id.action_hubFragment_to_calculatorFragment
+            ),
+            AppItem(
+                name = "Placar",
+                iconRes = R.drawable.ic_hub_scoreboard,
+                navigationAction = R.id.action_hubFragment_to_scoreboardFragment
+            ),
+            AppItem(
+                name = "Cronometro",
+                iconRes = R.drawable.ic_hub_timer,
+                navigationAction = R.id.action_hubFragment_to_timerFragment
+            )
+        )
+
+        hubAdapter.submitList(appList)
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
-        // Limpa a referência ao binding quando a view do fragment é destruída.
-        // Isso é crucial para evitar memory leaks (vazamentos de memória).
         _binding = null
     }
 

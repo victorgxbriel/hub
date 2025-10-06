@@ -4,20 +4,33 @@ import android.graphics.Color
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.scoreboard.data.Team
+import com.example.scoreboard.data.TeamRepository
 
 class ScoreboardViewModel : ViewModel() {
+
+    private val teams = TeamRepository.getTeams()
+
+    val teamNames: List<String> = listOf("Time A") + teams.map { it.name }
+
+    private val _selectedTeamA = MutableLiveData<Team?>()
+    val selectedTeamA: LiveData<Team?> = _selectedTeamA
+
+    private val _selectedTeamB = MutableLiveData<Team?>()
+    val selectedTeamB: LiveData<Team?> = _selectedTeamB
+
+    private val _gameControlsVisible = MutableLiveData<Boolean>(false)
+    val gameControlsVisible: LiveData<Boolean> = _gameControlsVisible
 
     private var scoreTeamA = 0
     private var scoreTeamB = 0
 
-    // --- LIVEDATA (O que a UI vai observar) ---
     private val _scoreTeamA_LD = MutableLiveData<Int>(0)
     val scoreTeamA_LD: LiveData<Int> = _scoreTeamA_LD
 
     private val _scoreTeamB_LD = MutableLiveData<Int>(0)
     val scoreTeamB_LD: LiveData<Int> = _scoreTeamB_LD
 
-    // O ViewModel também decide a COR, pois é parte da lógica do placar.
     private val _scoreColorTeamA_LD = MutableLiveData<Int>(Color.BLACK)
     val scoreColorTeamA_LD: LiveData<Int> = _scoreColorTeamA_LD
 
@@ -25,7 +38,19 @@ class ScoreboardViewModel : ViewModel() {
     val scoreColorTeamB_LD: LiveData<Int> = _scoreColorTeamB_LD
 
 
-    // --- AÇÕES (O que a UI vai chamar) ---
+    fun onTeamSelected(teamIdentifier: String, teamName: String) {
+        val team = teams.find { it.name == teamName }
+
+        if (teamIdentifier == "A") {
+            _selectedTeamA.value = team
+        } else {
+            _selectedTeamB.value = team
+        }
+
+        _gameControlsVisible.value = _selectedTeamA.value != null && _selectedTeamB.value != null
+        onResetPressed()
+    }
+
 
     fun onAddPointsForTeam(points: Int, team: String) {
         if (team == "A") {
@@ -42,14 +67,11 @@ class ScoreboardViewModel : ViewModel() {
         updateScores()
     }
 
-    // --- LÓGICA INTERNA ---
 
     private fun updateScores() {
-        // Atualiza os LiveData com os novos valores de pontuação.
         _scoreTeamA_LD.value = scoreTeamA
         _scoreTeamB_LD.value = scoreTeamB
 
-        // A lógica de cor agora vive aqui, totalmente separada da UI.
         when {
             scoreTeamA > scoreTeamB -> {
                 _scoreColorTeamA_LD.value = Color.BLUE

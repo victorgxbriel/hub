@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="nba_teams">
+        <item>Hawks</item>
+        <item>Celtics</item>
+        <item>Nets</item>
+        <item>Hornets</item>
+        <item>Bulls</item>
+        <item>Cavaliers</item>
+        <item>Mavericks</item>
+        <item>Nuggets</item>
+        <item>Pistons</item>
+        <item>Warriors</item>
+        <item>Rockets</item>
+        <item>Pacers</item>
+        <item>Clippers</item>
+        <item>Lakers</item>
+        <item>Grizzlies</item>
+        <item>Heat</item>
+        <item>Bucks</item>
+        <item>Timberwolves</item>
+        <item>Pelicans</item>
+        <item>Knicks</item>
+        <item>Thunder</item>
+        <item>Magic</item>
+        <item>76ers</item>
+        <item>Suns</item>
+        <item>Trail Blazers</item>
+        <item>Kings</item>
+        <item>Spurs</item>
+        <item>Raptors</item>
+        <item>Jazz</item>
+        <item>Wizards</item>
+    </string-array>
+</resources>

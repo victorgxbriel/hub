@@ -1,9 +1,12 @@
 package com.example.hub
 
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.navigation.NavController
@@ -28,6 +31,7 @@ class MainActivity : AppCompatActivity() {
         navController = navHostFragment.navController
 
         setupActionBarWithNavController(navController)
+        setupDestinationListener() // icone no titulo
 
         //setupFab()
         //setupNavigationListener()
@@ -46,6 +50,47 @@ class MainActivity : AppCompatActivity() {
 
     override fun onSupportNavigateUp(): Boolean {
         return navController.navigateUp() || super.onSupportNavigateUp()
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.main_toolbar_menu, menu)
+        return true
+    }
+
+    // modo tema
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.action_toggle_theme -> {
+                val currentNightMode = AppCompatDelegate.getDefaultNightMode()
+                if (currentNightMode == AppCompatDelegate.MODE_NIGHT_YES) {
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+                } else {
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+                }
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
+
+    private fun setupDestinationListener() {
+        navController.addOnDestinationChangedListener { _, destination, _ ->
+            // Lógica para mostrar o ícone ao lado do título
+            val iconRes = when (destination.id) {
+                R.id.calculatorFragment -> R.drawable.ic_hub_calculator
+                R.id.scoreboardFragment -> R.drawable.ic_hub_scoreboard
+                R.id.timerFragment -> R.drawable.ic_hub_timer
+                else -> 0 // Sem ícone para o Hub ou outras telas
+            }
+
+            if (iconRes != 0) {
+                supportActionBar?.setLogo(iconRes)
+                supportActionBar?.setDisplayUseLogoEnabled(true)
+            } else {
+                supportActionBar?.setDisplayUseLogoEnabled(false)
+                supportActionBar?.setLogo(null)
+            }
+        }
     }
 
     private fun setupFab() {
