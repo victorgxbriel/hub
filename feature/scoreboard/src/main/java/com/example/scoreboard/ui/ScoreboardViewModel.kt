@@ -31,12 +31,6 @@ class ScoreboardViewModel : ViewModel() {
     private val _scoreTeamB_LD = MutableLiveData<Int>(0)
     val scoreTeamB_LD: LiveData<Int> = _scoreTeamB_LD
 
-    private val _scoreColorTeamA_LD = MutableLiveData<Int>(Color.BLACK)
-    val scoreColorTeamA_LD: LiveData<Int> = _scoreColorTeamA_LD
-
-    private val _scoreColorTeamB_LD = MutableLiveData<Int>(Color.BLACK)
-    val scoreColorTeamB_LD: LiveData<Int> = _scoreColorTeamB_LD
-
 
     fun onTeamSelected(teamIdentifier: String, teamName: String) {
         val team = teams.find { it.name == teamName }
@@ -72,20 +66,6 @@ class ScoreboardViewModel : ViewModel() {
         _scoreTeamA_LD.value = scoreTeamA
         _scoreTeamB_LD.value = scoreTeamB
 
-        when {
-            scoreTeamA > scoreTeamB -> {
-                _scoreColorTeamA_LD.value = Color.BLUE
-                _scoreColorTeamB_LD.value = Color.RED
-            }
-            scoreTeamB > scoreTeamA -> {
-                _scoreColorTeamB_LD.value = Color.BLUE
-                _scoreColorTeamA_LD.value = Color.RED
-            }
-            else -> {
-                _scoreColorTeamA_LD.value = Color.BLACK
-                _scoreColorTeamB_LD.value = Color.BLACK
-            }
-        }
     }
 
 }

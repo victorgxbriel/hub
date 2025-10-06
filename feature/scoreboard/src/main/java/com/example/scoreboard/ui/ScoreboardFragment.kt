@@ -1,16 +1,21 @@
 package com.example.scoreboard.ui
 
+import android.content.Context
 import android.os.Bundle
+import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import androidx.annotation.AttrRes
 import androidx.appcompat.widget.AppCompatButton
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.example.scoreboard.data.Team
 import com.example.scoreboard.databinding.FragmentScoreboardBinding
+import com.example.core.R
 
 class ScoreboardFragment : Fragment() {
 
@@ -86,17 +91,11 @@ class ScoreboardFragment : Fragment() {
         // Observa as pontuações
         viewModel.scoreTeamA_LD.observe(viewLifecycleOwner) { score ->
             binding.placarTimeA.text = score.toString()
+            updateScoreColors()
         }
         viewModel.scoreTeamB_LD.observe(viewLifecycleOwner) { score ->
             binding.placarTimeB.text = score.toString()
-        }
-
-        // Observa as cores
-        viewModel.scoreColorTeamA_LD.observe(viewLifecycleOwner) { color ->
-            binding.placarTimeA.setTextColor(color)
-        }
-        viewModel.scoreColorTeamB_LD.observe(viewLifecycleOwner) { color ->
-            binding.placarTimeB.setTextColor(color)
+            updateScoreColors()
         }
 
         viewModel.selectedTeamA.observe(viewLifecycleOwner) { team ->
@@ -146,6 +145,35 @@ class ScoreboardFragment : Fragment() {
                 // Aplica um estilo padrão para não quebrar a UI
             }
         }
+    }
+
+    private fun updateScoreColors() {
+        val scoreA = viewModel.scoreTeamA_LD.value ?: 0
+        val scoreB = viewModel.scoreTeamB_LD.value ?: 0
+
+        val winningColor = ContextCompat.getColor(requireContext(), R.color.score_winning_color)
+        val losingColor = ContextCompat.getColor(requireContext(), R.color.score_losing_color)
+
+
+        when {
+            scoreA > scoreB -> {
+                binding.placarTimeA.setTextColor(winningColor)
+                binding.placarTimeB.setTextColor(losingColor)
+            }
+            scoreB > scoreA -> {
+                binding.placarTimeB.setTextColor(winningColor)
+                binding.placarTimeA.setTextColor(losingColor)
+            }
+
+        }
+    }
+
+    private fun Context.getColorFromAttr(
+        @AttrRes attrRes: Int
+    ): Int {
+        val typedValue = TypedValue()
+        theme.resolveAttribute(attrRes, typedValue, true)
+        return typedValue.data
     }
 
     override fun onDestroyView() {

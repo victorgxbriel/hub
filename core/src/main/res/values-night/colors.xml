@@ -6,4 +6,7 @@
     <color name="colorOnBackground">#FFFFFF</color>
     <color name="colorSurface">#1C1C1E</color>
     <color name="colorOnSurface">#FFFFFF</color>
-</resources>
+    <color name="score_winning_color">#448AFF</color>
+    <color name="score_losing_color">#FF5252</color>
+    <color name="score_tied_color">?attr/colorOnBackground</color>
+    </resources>

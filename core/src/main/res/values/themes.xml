@@ -9,4 +9,9 @@
     </style>
 
     <style name="Theme.AppHub" parent="Base.Theme.AppHub" />
+
+    <style name="Theme.AppHub.NoActionBar" parent="Theme.AppHub">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
 </resources>

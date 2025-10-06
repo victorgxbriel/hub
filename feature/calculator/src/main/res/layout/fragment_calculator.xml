@@ -4,7 +4,6 @@
     android:fitsSystemWindows="true"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:background="@android:color/black"
     android:layout_height="match_parent"
     android:padding="16dp">
 
@@ -42,7 +41,7 @@
         android:gravity="bottom|end"
         android:text="0"
         android:textSize="80sp"
-        android:textColor="@android:color/white"
+        android:textColor="?attr/colorOnBackground"
         android:padding="16dp"
         app:layout_constraintTop_toBottomOf="@id/txtOperacao"
         app:layout_constraintBottom_toTopOf="@id/gridButtons"

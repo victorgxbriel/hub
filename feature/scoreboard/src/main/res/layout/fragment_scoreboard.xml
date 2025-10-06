@@ -36,7 +36,7 @@
                 android:text="0"
                 android:textSize="54sp"
                 android:textStyle="bold"
-                android:textColor="#000000"
+                android:textColor="?attr/colorOnBackground"
                 android:fontFamily="sans-serif"
                 android:visibility="gone"/>
 
@@ -103,7 +103,7 @@
                 android:text="0"
                 android:textSize="54sp"
                 android:textStyle="bold"
-                android:textColor="#000000"
+                android:textColor="?attr/colorOnBackground"
                 android:fontFamily="sans-serif"
                 android:visibility="gone"/>
 

@@ -17,7 +17,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:textColor="#FFFFFF"
+            android:textColor="?attr/colorOnBackground"
             android:textSize="18sp"
             tools:text="Volta 5" />
 
@@ -25,7 +25,7 @@
             android:id="@+id/lapTimeText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="#FFFFFF"
+            android:textColor="?attr/colorOnBackground"
             android:textSize="18sp"
             tools:text="00:02.88" />
 
