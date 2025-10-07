@@ -154,6 +154,7 @@ class ScoreboardFragment : Fragment() {
         val winningColor = ContextCompat.getColor(requireContext(), R.color.score_winning_color)
         val losingColor = ContextCompat.getColor(requireContext(), R.color.score_losing_color)
 
+        val tiedColor = requireContext().getColorFromAttr(com.google.android.material.R.attr.colorOnBackground)
 
         when {
             scoreA > scoreB -> {
@@ -163,6 +164,10 @@ class ScoreboardFragment : Fragment() {
             scoreB > scoreA -> {
                 binding.placarTimeB.setTextColor(winningColor)
                 binding.placarTimeA.setTextColor(losingColor)
+            }
+            else -> {
+                binding.placarTimeA.setTextColor(tiedColor)
+                binding.placarTimeB.setTextColor(tiedColor)
             }
 
         }
