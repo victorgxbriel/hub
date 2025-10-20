@@ -3,9 +3,27 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:background="@android:color/black"
     android:layout_height="match_parent"
     android:padding="16dp">
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fillViewport="true" app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
 
     <!-- Botão de Histórico -->
     <com.google.android.material.button.MaterialButton
@@ -40,20 +58,18 @@
         android:gravity="end"
         android:text="0"
         android:textSize="32sp"
-        android:textColor="@android:color/white"
+        android:textColor="?attr/colorOnBackground"
         android:padding="16dp"
         app:layout_constraintTop_toBottomOf="@id/txtOperacao"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
     <LinearLayout
         android:id="@+id/custom_button_memory"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@id/txtResultado"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" >
+        android:orientation="horizontal">
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnMC"
@@ -99,12 +115,9 @@
 
     <LinearLayout
         android:id="@+id/custom_button_row"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@id/custom_button_memory"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         android:divider="@drawable/spacer"
         android:showDividers="middle">
 
@@ -159,20 +172,14 @@
     </LinearLayout>
 
     <!-- Grade de botões -->
+
     <GridLayout
         android:id="@+id/gridButtons"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:alignmentMode="alignMargins"
         android:columnCount="4"
-        android:rowCount="5"
-        android:useDefaultMargins="true"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/custom_button_row"
-        app:layout_constraintVertical_bias="0.0">
+        android:rowCount="5">
 
         <!-- Linha 1 -->
 
@@ -183,40 +190,40 @@
             android:id="@+id/btn7"
             style="@style/Widget.Material3.Button"
             android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
             android:layout_columnWeight="1"
-            android:layout_rowWeight="1"
-            android:layout_gravity="fill"
+            android:layout_gravity="fill_horizontal"
+            android:layout_margin="2dp"
             android:text="7" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn8"
             style="@style/Widget.Material3.Button"
             android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
             android:layout_columnWeight="1"
-            android:layout_rowWeight="1"
-            android:layout_gravity="fill"
+            android:layout_gravity="fill_horizontal"
+            android:layout_margin="2dp"
             android:text="8" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn9"
             style="@style/Widget.Material3.Button"
             android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
             android:layout_columnWeight="1"
-            android:layout_rowWeight="1"
-            android:layout_gravity="fill"
+            android:layout_gravity="fill_horizontal"
+            android:layout_margin="2dp"
             android:text="9" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnMultiplicar"
             style="@style/Widget.Material3.Button"
             android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
             android:layout_columnWeight="1"
-            android:layout_rowWeight="1"
-            android:layout_gravity="fill"
+            android:layout_gravity="fill_horizontal"
+            android:layout_margin="2dp"
             android:text="×" />
 
         <!-- Linha 3 -->
@@ -224,40 +231,40 @@
             android:id="@+id/btn4"
             style="@style/Widget.Material3.Button"
             android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
             android:layout_columnWeight="1"
-            android:layout_rowWeight="1"
-            android:layout_gravity="fill"
+            android:layout_gravity="fill_horizontal"
+            android:layout_margin="2dp"
             android:text="4" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn5"
             style="@style/Widget.Material3.Button"
             android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
             android:layout_columnWeight="1"
-            android:layout_rowWeight="1"
-            android:layout_gravity="fill"
+            android:layout_gravity="fill_horizontal"
+            android:layout_margin="2dp"
             android:text="5" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn6"
             style="@style/Widget.Material3.Button"
             android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
             android:layout_columnWeight="1"
-            android:layout_rowWeight="1"
-            android:layout_gravity="fill"
+            android:layout_gravity="fill_horizontal"
+            android:layout_margin="2dp"
             android:text="6" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnSubtrair"
             style="@style/Widget.Material3.Button"
             android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
             android:layout_columnWeight="1"
-            android:layout_rowWeight="1"
-            android:layout_gravity="fill"
+            android:layout_gravity="fill_horizontal"
+            android:layout_margin="2dp"
             android:text="-" />
 
         <!-- Linha 4 -->
@@ -265,40 +272,40 @@
             android:id="@+id/btn1"
             style="@style/Widget.Material3.Button"
             android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
             android:layout_columnWeight="1"
-            android:layout_rowWeight="1"
-            android:layout_gravity="fill"
+            android:layout_gravity="fill_horizontal"
+            android:layout_margin="2dp"
             android:text="1" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn2"
             style="@style/Widget.Material3.Button"
             android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
             android:layout_columnWeight="1"
-            android:layout_rowWeight="1"
-            android:layout_gravity="fill"
+            android:layout_gravity="fill_horizontal"
+            android:layout_margin="2dp"
             android:text="2" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn3"
             style="@style/Widget.Material3.Button"
             android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
             android:layout_columnWeight="1"
-            android:layout_rowWeight="1"
-            android:layout_gravity="fill"
+            android:layout_gravity="fill_horizontal"
+            android:layout_margin="2dp"
             android:text="3" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnSomar"
             style="@style/Widget.Material3.Button"
             android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
             android:layout_columnWeight="1"
-            android:layout_rowWeight="1"
-            android:layout_gravity="fill"
+            android:layout_gravity="fill_horizontal"
+            android:layout_margin="2dp"
             android:text="+" />
 
         <!-- Linha 5 -->
@@ -306,40 +313,42 @@
             android:id="@+id/btnMaisMenos"
             style="@style/Widget.Material3.Button"
             android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
             android:layout_columnWeight="1"
-            android:layout_rowWeight="1"
-            android:layout_gravity="fill"
+            android:layout_gravity="fill_horizontal"
+            android:layout_margin="2dp"
             android:text="±" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn0"
             style="@style/Widget.Material3.Button"
             android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
             android:layout_columnWeight="1"
-            android:layout_rowWeight="1"
-            android:layout_gravity="fill"
+            android:layout_gravity="fill_horizontal"
+            android:layout_margin="2dp"
             android:text="0" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnPonto"
             style="@style/Widget.Material3.Button"
             android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
             android:layout_columnWeight="1"
-            android:layout_rowWeight="1"
-            android:layout_gravity="fill"
+            android:layout_gravity="fill_horizontal"
+            android:layout_margin="2dp"
             android:text="." />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnIgual"
             style="@style/Widget.Material3.Button.ElevatedButton"
             android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
             android:layout_columnWeight="1"
-            android:layout_rowWeight="1"
-            android:layout_gravity="fill"
+            android:layout_gravity="fill_horizontal"
+            android:layout_margin="2dp"
             android:text="=" />
     </GridLayout>
+        </LinearLayout>
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
